@@ -17,5 +17,7 @@ data.forEach(function(UFOReport) {
         console.log(key, value);
         //Append a cell to the row for each value in the UFOReport object
         var cell = row.append("td");
+        // Update each cell with UFO sighting info
+        cell.text(value);
     });
 });
