@@ -38,4 +38,15 @@ function runEnter() {
 
     var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
     console.log(filteredData);
+
+    filteredData.forEach(function(selections) {
+        console.log(selections);
+        // Append to the table like above
+        var row = tbody.append("tr");
+        Object.entries(selections).forEach(function([key, value]) {
+            console.log(key, value);
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
 };
