@@ -21,3 +21,13 @@ data.forEach(function(UFOReport) {
         cell.text(value);
     });
 });
+
+// Getting a reference to the Filter Table button
+var button = d3.select("#filter-btn");
+button.on("click", function() {
+
+  tbody.html("");
+  
+  // Getting a reference to the input element 
+  var inputField = d3.select("#datetime");
+})
