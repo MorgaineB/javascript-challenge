@@ -11,4 +11,9 @@ data.forEach(function(UFOReport) {
     console.log(UFOReport);
     //Append one table row 'tr' for each UFO sighting object
     var row = tbody.append("tr")
+
+    // Use 'Object.entries' to console.log each UFO sighting value
+    Object.entries(UFOReport).forEach(function([key, value]) {
+        console.log(key, value);
+    });
 });
