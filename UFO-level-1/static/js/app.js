@@ -26,8 +26,28 @@ data.forEach(function(UFOReport) {
 var button = d3.select("#filter-btn");
 button.on("click", function() {
 
-  tbody.html("");
-  
-  // Getting a reference to the input element 
+    d3.event.preventDefault();
+    
+    tbody.html("");
+
+    // Getting a reference to the input element 
   var inputField = d3.select("#datetime");
-})
+  // Get the value property of the input element
+  var inputValue = inputElement.property("value");
+  console.log(inputValue)
+  // Filter the UFO Sighting data based on input date
+  var filteredData = data.filter(sighting => sighting.datetime === inputValue);
+  console.log(filteredData);
+
+  filteredData.forEach(function(selections) {
+
+    console.log(selections);
+    var row = tbody.append("tr");
+    Object.entries(selections).forEach(function([key, value]) {
+        console.log(key, value);
+        var cell = row.append("td");
+        cell.text(value);
+    });
+  });
+
+});
