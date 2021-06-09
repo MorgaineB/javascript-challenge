@@ -53,9 +53,6 @@ function runEnter() {
     var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
     console.log(filteredData);
 
-    var filteredData = tableData.filter(sighting => sighting.city === inputValue2);
-    console.log(filteredData);
-
     //Add the filtered data only to the table
     filteredData.forEach(function(selections) {
         console.log(selections);
