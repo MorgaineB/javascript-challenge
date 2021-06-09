@@ -43,8 +43,17 @@ function runEnter() {
     var inputValue = inputElement.property("value");
     console.log(inputValue);
 
+    //Select the input element for city
+    var inputElement2 = d3.select("#city");
+    //Get the value property of the input element
+    var inputValue2 = inputElement2.property("value");
+    console.log(inputValue2);
+
     //Filter the data
     var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+    console.log(filteredData);
+
+    var filteredData = tableData.filter(sighting => sighting.city === inputValue2);
     console.log(filteredData);
 
     //Add the filtered data only to the table
