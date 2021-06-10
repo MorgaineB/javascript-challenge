@@ -51,12 +51,21 @@ function runEnter() {
     var cityValue = cityElement.property("value");
     console.log(cityValue);
 
+    //Select the input element for city
+    var stateElement = d3.select("#state");
+    //Get the value property of the input element
+    var stateValue = stateElement.property("value");
+    console.log(stateValue);
+
     //Filter the data
     if (datetimeValue.length > 0) {
         filteredData = filteredData.filter(sighting => sighting.datetime === datetimeValue);
     }
     if (cityValue.length > 0) {
         filteredData = filteredData.filter(sighting => sighting.city === cityValue);
+    }
+    if (stateValue.length > 0) {
+        filteredData = filteredData.filter(sighting => sighting.state === stateValue);
     }
 
     //Add the filtered data only to the table
