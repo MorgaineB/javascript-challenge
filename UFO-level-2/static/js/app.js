@@ -51,17 +51,23 @@ function runEnter() {
     var cityValue = cityElement.property("value");
     console.log(cityValue);
 
-    //Select the input element for city
+    //Select the input element for state
     var stateElement = d3.select("#state");
     //Get the value property of the input element
     var stateValue = stateElement.property("value");
     console.log(stateValue);
 
-    //Select the input element for city
+    //Select the input element for country
     var countryElement = d3.select("#country");
     //Get the value property of the input element
     var countryValue = countryElement.property("value");
     console.log(countryValue);
+
+     //Select the input element for shape
+     var shapeElement = d3.select("#shape");
+     //Get the value property of the input element
+     var shapeValue = shapeElement.property("value");
+     console.log(shapeValue);
 
     //Filter the data
     if (datetimeValue.length > 0) {
@@ -75,6 +81,9 @@ function runEnter() {
     }
     if (countryValue.length > 0) {
         filteredData = filteredData.filter(sighting => sighting.country === countryValue);
+    }
+    if (shapeValue.length > 0) {
+        filteredData = filteredData.filter(sighting => sighting.shape === shapeValue);
     }
 
     //Add the filtered data only to the table
