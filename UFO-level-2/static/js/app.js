@@ -38,20 +38,28 @@ function runEnter() {
     tbody.html("");
 
     //Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    var datetimeElement = d3.select("#datetime");
     //Get the value property of the input element
-    var inputValue = inputElement.property("value");
-    console.log(inputValue);
+    var datetimeValue = datetimeElement.property("value");
+    console.log(datetimeValue);
 
     //Select the input element for city
-    var inputElement2 = d3.select("#city");
+    var cityElement = d3.select("#city");
     //Get the value property of the input element
-    var inputValue2 = inputElement2.property("value");
-    console.log(inputValue2);
+    var cityValue = cityElement.property("value");
+    console.log(cityValue);
 
     //Filter the data
-    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
-    console.log(filteredData);
+    if (datetimeValue.length > 0) {
+        filteredData = tableData.filter(sighting => sighting.datetime === datetimeValue);
+        console.log(filteredData);
+    }
+    if (cityValue.length > 0) {
+        filteredData = tableData.filter(sighting => sighting.city === cityValue);
+        console.log(filteredData);
+    }
+
+    
 
     //Add the filtered data only to the table
     filteredData.forEach(function(selections) {
