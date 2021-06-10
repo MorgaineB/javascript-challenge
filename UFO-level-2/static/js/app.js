@@ -37,6 +37,8 @@ function runEnter() {
     //Clear out the table
     tbody.html("");
 
+    var filteredData = tableData;
+
     //Select the input element and get the raw HTML node
     var datetimeElement = d3.select("#datetime");
     //Get the value property of the input element
@@ -51,15 +53,11 @@ function runEnter() {
 
     //Filter the data
     if (datetimeValue.length > 0) {
-        filteredData = tableData.filter(sighting => sighting.datetime === datetimeValue);
-        console.log(filteredData);
+        filteredData = filteredData.filter(sighting => sighting.datetime === datetimeValue);
     }
     if (cityValue.length > 0) {
-        filteredData = tableData.filter(sighting => sighting.city === cityValue);
-        console.log(filteredData);
+        filteredData = filteredData.filter(sighting => sighting.city === cityValue);
     }
-
-    
 
     //Add the filtered data only to the table
     filteredData.forEach(function(selections) {
